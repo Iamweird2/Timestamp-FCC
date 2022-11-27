@@ -41,4 +41,14 @@ app.get("/api/1451001600000", function (req, res) {
 
 var listener = app.listen(port, function () {
   console.log("Your app is listening on port " + listener.address().port);
+
+  var options = {
+    port: 5000,
+    host: "127.0.0.1",
+  };
+  var request = http.request(options);
+
+  request.setHeader("ngrok-skip-browser-warning", "6555151");
+
+  request.end();
 });

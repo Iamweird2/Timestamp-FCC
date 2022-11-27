@@ -2,10 +2,18 @@
 // where your node app starts
 
 // init project
-const http = require("http");
 var express = require("express");
 var app = express();
 let port = process.env.PORT || 5000;
+fetch(url, {
+  method: "get",
+  headers: new Headers({
+    "ngrok-skip-browser-warning": "69420",
+  }),
+})
+  .then((response) => response.json())
+  .then((data) => console.log(data))
+  .catch((err) => console.log(err));
 
 // enable CORS (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
 // so that your API is remotely testable by FCC

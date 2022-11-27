@@ -39,6 +39,16 @@ app.get("/api/1451001600000", function (req, res) {
 });
 // listen for requests :)
 
-var listener = app.listen(port, function () {
+var httpServer = http.createServer(function (request, response) {
+  // Setting up Headers
+  response.setHeader("ngrok-skip-browser-warning", "text/html");
+  console.log(response.getHeader("ngrok-skip-browser-warning"));
+  console.log("When Header is set an Array:", response.getHeader("Set-Cookie")); // Getting the set Headers
+  const headers = response.getHeaders(); // Printing those headers
+  console.log(headers); // Prints Output on the browser in response
+  response.writeHead(200, { "Content-Type": "text/plain" });
+  response.end("ok");
+});
+httpServer.listen(port, function () {
   console.log("Your app is listening on port " + listener.address().port);
 });

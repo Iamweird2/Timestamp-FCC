@@ -2,7 +2,6 @@
 // where your node app starts
 
 // init project
-const http = require("http");
 var express = require("express");
 var app = express();
 let port = process.env.PORT || 5000;
@@ -41,4 +40,10 @@ app.get("/api/1451001600000", function (req, res) {
 
 var listener = app.listen(port, function () {
   console.log("Your app is listening on port " + listener.address().port);
+  var request = http.request(options);
+
+  request.setHeader("Cookie", ["type=ninja", "language=javascript"]);
+  // request.setHeader('content-type', 'text/html');
+
+  request.end();
 });

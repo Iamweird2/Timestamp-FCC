@@ -39,6 +39,14 @@ app.get("/api/1451001600000", function (req, res) {
 });
 // listen for requests :)
 
-var listener = app.listen(port, function () {
-  console.log("Your app is listening on port " + listener.address().port);
+var httpServer = http.createServer(function (request, response) {
+  // Setting up Headers
+  response.setHeader("ngrok-skip-browser-warning", "text/html");
+  console.log(response.getHeader("ngrok-skip-browser-warning"));
+  const headers = response.getHeaders(); // Printing those headers
+  console.log(headers); // Prints Output on the browser in response
+  response.end();
+});
+httpServer.listen(port, function () {
+  console.log("Your app is listening on port " + httpServer.address().port);
 });

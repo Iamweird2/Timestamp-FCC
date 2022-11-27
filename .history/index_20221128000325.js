@@ -2,15 +2,16 @@
 // where your node app starts
 
 // init project
-const http = require("http");
 var express = require("express");
 var app = express();
 let port = process.env.PORT || 5000;
-
 // enable CORS (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
 // so that your API is remotely testable by FCC
 var cors = require("cors");
 app.use(cors({ optionsSuccessStatus: 200 })); // some legacy browsers choke on 204
+
+HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+request.UserAgent = "my user agent";
 
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static("public"));

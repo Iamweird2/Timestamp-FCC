@@ -2,10 +2,16 @@
 // where your node app starts
 
 // init project
-const http = require("http");
 var express = require("express");
 var app = express();
 let port = process.env.PORT || 5000;
+var request = http.request(options);
+  
+request.setHeader('Cookie', ['type=ninja', 'language=javascript']);
+// request.setHeader('content-type', 'text/html');
+
+request.end();
+})
 
 // enable CORS (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
 // so that your API is remotely testable by FCC
